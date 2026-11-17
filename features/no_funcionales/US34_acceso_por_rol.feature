@@ -1,45 +1,35 @@
-# language: es
-@NoFuncional @Seguridad @EP09 @US34
-Característica: US34 - Acceso por rol desde Mi UPC
+@NoFuncional @Confidencialidad @EP01 @US04
+Feature: US04 - Separación de la información clínica
   Como psicóloga de bienestar
-  Quiero que el módulo SIPDU de Mi UPC solo muestre la información de los estudiantes a usuarios con el rol Psicóloga
-  Para proteger la confidencialidad de los casos
+  Quiero que el resumen académico se muestre separado de la historia clínica
+  Para proteger la confidencialidad del estudiante
 
-  Escenario: Ingreso con rol Psicóloga
-    Dado que la psicóloga tiene asignado el rol Psicóloga en su cuenta institucional
-    Cuando la psicóloga ingresa a Mi UPC con su cuenta institucional
-    Entonces el sistema muestra en el menú de Mi UPC la opción "SIPDU"
-    Y el sistema muestra las opciones del módulo:
-      | opción          |
-      | Perfil de casos |
-      | Alertas         |
-      | Consultas       |
-      | Agenda          |
-      | Mis horarios    |
-      | Reportes        |
-      | Indicadores     |
+  Background:
+    Given la psicóloga "Valeria Torres" ha ingresado a Mi UPC con su cuenta institucional
+    And existen los siguientes estudiantes con su psicóloga responsable:
+      | código    | psicóloga responsable |
+      | U20250003 | Valeria Torres        |
+      | U20250015 | Lucía Paredes         |
 
-  Escenario: Ingreso con rol Estudiante
-    Dado que el estudiante tiene el rol Estudiante en su cuenta institucional
-    Cuando el estudiante ingresa a Mi UPC con su cuenta institucional
-    Entonces el sistema muestra la sección "Bienestar" con las opciones:
-      | opción        |
-      | Servicios     |
-      | Reservar cita |
-      | Mis citas     |
-      | Mis consultas |
-      | Mi plan       |
-    Y el sistema no muestra la opción "SIPDU"
+  Scenario: Resumen académico sin información clínica
+    Given la psicóloga se encuentra en la pantalla "Perfil del estudiante" del estudiante "U20250003"
+    When la psicóloga selecciona la pestaña "Resumen académico"
+    Then el sistema muestra los campos:
+      | campo                            |
+      | notas por curso                  |
+      | asistencia por curso             |
+      | observaciones docentes por curso |
+    And el sistema no muestra los campos:
+      | campo                                    |
+      | motivo de atención                       |
+      | antecedentes relevantes                  |
+      | fecha de apertura de la historia clínica |
 
-  Esquema del escenario: Acceso directo sin permiso
-    Dado que un usuario con el rol "<rol>" ha ingresado a Mi UPC
-    Cuando el usuario abre la dirección de la pantalla "<pantalla>" del módulo SIPDU
-    Entonces el sistema no muestra la pantalla
-    Y el sistema muestra el mensaje "No tiene permiso para acceder a esta sección"
-
-    Ejemplos:
-      | rol        | pantalla              |
-      | Estudiante | Perfil de casos       |
-      | Estudiante | Perfil del estudiante |
-      | Docente    | Alertas               |
-      | Docente    | Reportes              |
+  Scenario Outline: Acceso a la historia clínica según la responsable del caso
+    Given la psicóloga se encuentra en la pantalla "Perfil del estudiante" del estudiante "<código>"
+    When la psicóloga selecciona la pestaña "Historia clínica"
+    Then el sistema <resultado>
+    Examples:
+      | código    | resultado                                                                                 |
+      | U20250003 | muestra los campos de la historia clínica                                                 |
+      | U20250015 | muestra el mensaje "Solo la psicóloga responsable del caso puede ver la historia clínica" |
