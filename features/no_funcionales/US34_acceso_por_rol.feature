@@ -1,7 +1,8 @@
 @NoFuncional @Seguridad @EP09 @US34
 Feature: US34 - Acceso por rol desde Mi UPC
   Como psicóloga de bienestar
-  Quiero que el módulo SIPDU de Mi UPC solo muestre la información de los estudiantes a usuarios con el rol Psicóloga
+  Quiero que el módulo SIPDU de Mi UPC solo muestre la información de los estudiantes a
+   usuarios con el rol Psicóloga
   Para proteger la confidencialidad de los casos
 
   Scenario: Ingreso con rol Psicóloga
@@ -41,3 +42,8 @@ Feature: US34 - Acceso por rol desde Mi UPC
       | Estudiante | Perfil del estudiante |
       | Docente    | Alertas               |
       | Docente    | Reportes              |
+
+
+
+
+      

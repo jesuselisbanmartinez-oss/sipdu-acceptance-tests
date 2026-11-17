@@ -6,7 +6,8 @@ Feature: US08 - Valoración profesional de la clasificación
 
   Background:
     Given la psicóloga "Valeria Torres" ha ingresado a Mi UPC con su cuenta institucional
-    And la psicóloga se encuentra en la pestaña "Nivel de riesgo" del "Perfil del estudiante" de un estudiante con nivel "alto"
+    And la psicóloga se encuentra en la pestaña "Nivel de riesgo" del "Perfil del estudiante" de un 
+    estudiante con nivel "alto"
 
   Scenario: Valoración de acuerdo
     When la psicóloga presiona el botón "De acuerdo"
@@ -21,7 +22,8 @@ Feature: US08 - Valoración profesional de la clasificación
       | comentario                   | <comentario> |
     And la psicóloga presiona el botón "Guardar"
     Then el sistema registra la valoración con la fecha y el nombre de la psicóloga
-    And el sistema muestra el nivel asignado por el modelo "alto" junto al nivel propuesto "<propuesto>" hasta la siguiente clasificación
+    And el sistema muestra el nivel asignado por el modelo "alto" junto al nivel propuesto "<propuesto>" 
+    hasta la siguiente clasificación
     Examples:
       | propuesto | comentario                                                 |
       | medio     | Las inasistencias se justifican por un tratamiento médico. |
@@ -32,3 +34,5 @@ Feature: US08 - Valoración profesional de la clasificación
     When la psicóloga presiona el botón "Guardar" sin completar el campo comentario
     Then el sistema no registra la valoración
     And el sistema muestra el mensaje "El comentario es obligatorio cuando no está de acuerdo"
+
+    

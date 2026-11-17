@@ -27,3 +27,9 @@ Feature: US07 - Evolución del riesgo en el ciclo
     When la psicóloga selecciona la pestaña "Evolución del riesgo"
     Then el sistema muestra el nivel de riesgo actual "medio"
     And el sistema muestra el mensaje "La evolución estará disponible desde la segunda clasificación"
+
+
+
+
+
+    

@@ -1,7 +1,8 @@
 @EP03 @US10 @NoFuncional @Usabilidad
 Feature: US10 - Detalle de la alerta sin etiquetas
   Como psicóloga de bienestar
-  Quiero ver en cada alerta los factores detectados y las acciones de apoyo sugeridas, con un lenguaje que no etiquete al estudiante
+  Quiero ver en cada alerta los factores detectados y las acciones de apoyo sugeridas, 
+  con un lenguaje que no etiquete al estudiante
   Para decidir cómo acercarme a él
 
   Background:

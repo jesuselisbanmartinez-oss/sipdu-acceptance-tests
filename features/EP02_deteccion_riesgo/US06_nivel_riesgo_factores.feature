@@ -12,7 +12,8 @@ Feature: US06 - Nivel de riesgo con factores explicativos
       | Cursos desaprobados        | 2      |
 
   Scenario Outline: Asignación del nivel de riesgo
-    Given el estudiante "<código>" registra en el ciclo actual <inasistencias> inasistencias consecutivas, un promedio de <promedio> y <desaprobados> cursos desaprobados
+    Given el estudiante "<código>" registra en el ciclo actual <inasistencias> inasistencias consecutivas, un promedio 
+    de <promedio> y <desaprobados> cursos desaprobados
     When el sistema ejecuta la clasificación semanal de riesgo
     Then el sistema asigna al estudiante el nivel de riesgo "<nivel>"
     And el sistema muestra el campo "Nivel de riesgo" con el valor "<nivel>" en la pantalla "Perfil del estudiante"
@@ -25,7 +26,8 @@ Feature: US06 - Nivel de riesgo con factores explicativos
 
   Scenario: Consulta de los factores del riesgo
     Given la psicóloga ha ingresado a Mi UPC con su cuenta institucional
-    And la psicóloga se encuentra en la pantalla "Perfil del estudiante" del estudiante "U20250003" con nivel de riesgo "alto"
+    And la psicóloga se encuentra en la pantalla "Perfil del estudiante" del estudiante "U20250003" con nivel
+     de riesgo "alto"
     When la psicóloga selecciona la pestaña "Nivel de riesgo"
     Then el sistema muestra los tres factores que más influyeron en la clasificación:
       | nombre del factor          | valor del estudiante | umbral |
@@ -39,3 +41,7 @@ Feature: US06 - Nivel de riesgo con factores explicativos
     When el sistema ejecuta la clasificación semanal de riesgo
     Then el sistema muestra el campo "Nivel de riesgo" con el valor "Sin clasificación"
     And el sistema muestra el mensaje "Faltan las notas del ciclo actual para clasificar al estudiante"
+
+
+
+

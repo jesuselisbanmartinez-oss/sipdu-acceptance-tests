@@ -24,3 +24,6 @@ Feature: US12 - Notificación de nueva alerta
       | 1         | 1          |
       | 5         | 5          |
       | 0         | sin número |
+
+
+      

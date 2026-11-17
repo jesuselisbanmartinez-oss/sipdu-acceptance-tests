@@ -22,3 +22,4 @@ Feature: US02 - Búsqueda de estudiantes
   Scenario: Búsqueda sin resultados en 2 segundos o menos
     When la psicóloga escribe "U99999999" en el campo "Buscar estudiante"
     Then el sistema muestra en un máximo de 2 segundos el mensaje "No se encontraron estudiantes con ese dato"
+    

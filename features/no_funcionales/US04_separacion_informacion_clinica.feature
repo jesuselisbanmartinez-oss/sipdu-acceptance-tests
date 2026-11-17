@@ -33,3 +33,5 @@ Feature: US04 - Separación de la información clínica
       | código    | resultado                                                                                 |
       | U20250003 | muestra los campos de la historia clínica                                                 |
       | U20250015 | muestra el mensaje "Solo la psicóloga responsable del caso puede ver la historia clínica" |
+
+      

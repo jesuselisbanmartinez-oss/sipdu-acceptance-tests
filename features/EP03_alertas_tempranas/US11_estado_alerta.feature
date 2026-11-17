@@ -25,4 +25,8 @@ Feature: US11 - Gestión del estado de la alerta
     And el estudiante no tiene intervenciones registradas
     When la psicóloga selecciona "atendida" en la lista "Estado"
     Then el sistema no cambia el estado de la alerta
-    And el sistema muestra el mensaje "Registre una intervención o un motivo antes de marcar la alerta como atendida" con el campo motivo
+    And el sistema muestra el mensaje 
+    "Registre una intervención o un motivo antes de marcar la alerta como atendida" con el campo motivo
+
+
+    
